@@ -18,7 +18,6 @@ namespace Parabank.Browser_SetUp
                 driver.Navigate().GoToUrl(url);
                 driver.Manage().Window.Maximize();
             }
-
             else if (BrowserType.Equals("edge"))
             {
                 driver = new EdgeDriver(EdgeDriverService.CreateDefaultService(".", "msedgedriver.exe"));

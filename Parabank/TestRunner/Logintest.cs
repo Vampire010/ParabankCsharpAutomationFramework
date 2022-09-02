@@ -1,11 +1,6 @@
 ﻿using NUnit.Framework;
 using Parabank.Browser_SetUp;
 using Parabank.LoginPage_Objects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Parabank.TestRunner
 {
@@ -20,8 +15,9 @@ namespace Parabank.TestRunner
         {
             browserLauncher.openBrowser(browserType1, testurl);
             LoginPage lp = new LoginPage(browserLauncher.driver);
-            lp.EnterUsername("JohnDee123");
-            lp.EnterPassword("PswdJohnDee123");
+            lp.userdata();
+            lp.EnterUsername();
+            lp.EnterPassword();
             lp.ClikLoginBtn();
             browserLauncher.driver.Close();
         }
