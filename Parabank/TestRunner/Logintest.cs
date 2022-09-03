@@ -16,9 +16,12 @@ namespace Parabank.TestRunner
             browserLauncher.openBrowser(browserType1, testurl);
             LoginPage lp = new LoginPage(browserLauncher.driver);
             lp.userdata();
-            lp.EnterUsername();
+           
+            /* lp.EnterUsername();
             lp.EnterPassword();
-            lp.ClikLoginBtn();
+            lp.ClikLoginBtn(); */
+            lp.login();
+
             browserLauncher.driver.Close();
         }
     }

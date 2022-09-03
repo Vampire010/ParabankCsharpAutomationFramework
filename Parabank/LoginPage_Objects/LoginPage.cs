@@ -1,4 +1,6 @@
-﻿using OpenQA.Selenium;
+﻿using AventStack.ExtentReports;
+using OpenQA.Selenium;
+using Parabank.Reports;
 using Parabank.TestDataAccess;
 using SeleniumExtras.PageObjects;
 using System;
@@ -9,6 +11,8 @@ namespace Parabank.LoginPage_Objects
     {
          string entrUserName;
          string entrPassword;
+        ExtentReports rep = ExtentManager.getInstance();
+        ExtentTest test;
 
         private IWebDriver driver;
         [FindsBy(How = How.XPath, Using = "//*[@id='loginPanel']/form/div[1]/input")]
@@ -42,7 +46,24 @@ namespace Parabank.LoginPage_Objects
         {
             LogInButton.Click();
         }
-      
+
+        public void login()
+        {
+            test = rep.CreateTest("User_Login");
+
+            EnterUsername();
+            test.Log(Status.Pass, "Username is Entered");
+           
+            EnterPassword();
+            test.Log(Status.Pass, "Password is Entered");
+
+
+            ClikLoginBtn();
+            test.Log(Status.Warning, "Clicked on Login Button");
+            rep.Flush();
+
+        }
+
         public void userdata()
         {
             ExcelOperations.PopulateInCollection(@"C:\Users\giris\source\repos\ParabankCsharpAutomationFramework\Parabank\TestDataAccess\TestData.xlsx");
@@ -57,7 +78,5 @@ namespace Parabank.LoginPage_Objects
             }
 
         }
-
-      
     }
 }
