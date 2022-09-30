@@ -10,7 +10,7 @@ namespace Parabank.TestRunner
         public static string browserType1 = "chrome";
         public static string browserType2 = "edge";
 
-        [Test]
+        //[Test]
         public static void loginTestRun2()
         {
             browserLauncher.openBrowser(browserType1, testurl);
