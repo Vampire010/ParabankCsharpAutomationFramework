@@ -15,7 +15,7 @@ namespace Parabank.ActionsAPI
         public static string testurl = "https://www.amazon.in/ref=nav_logo";
         public static string browserType1 = "chrome";
 
-        [Test]
+       // [Test]
         public static void loginTestRun2()
         {
             browserLauncher.openBrowser(browserType1, testurl);

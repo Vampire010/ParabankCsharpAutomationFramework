@@ -17,25 +17,26 @@ namespace Parabank.ActionsAPI
         public static string browserType1 = "chrome";
         public static string browserType2 = "edge";
 
-        [Test]
+       // [Test]
         public static void loginTestRun2()
         {
             browserLauncher.openBrowser(browserType1, testurl);
 
             //Switch to Frame 1
             browserLauncher.driver.SwitchTo().Frame(0);
-            browserLauncher.driver.FindElement(By.Id("Fname1")).SendKeys("Smith");
+            browserLauncher.driver.FindElement(By.Id("searchInput")).SendKeys("Smith");
 
             //Switch to Main Frame  
             browserLauncher.driver.SwitchTo().DefaultContent();
             IWebElement IFrame2 = browserLauncher.driver.FindElement(By.XPath("//*[@id='Frame2']"));
+           
             browserLauncher.driver.SwitchTo().Frame(IFrame2);
-            browserLauncher.driver.FindElement(By.Id("Fname2")).SendKeys("John");
+            browserLauncher.driver.FindElement(By.Id("searchInput")).SendKeys("John");
 
             //Switch to  Frame 3 *--
             browserLauncher.driver.SwitchTo().DefaultContent();
             browserLauncher.driver.SwitchTo().Frame("Frame3");
-            browserLauncher.driver.FindElement(By.Id("Fname3")).SendKeys("Ken");
+            browserLauncher.driver.FindElement(By.Id("searchInput")).SendKeys("Ken");
 
           
 

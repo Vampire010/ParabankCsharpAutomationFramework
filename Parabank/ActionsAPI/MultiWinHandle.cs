@@ -1,5 +1,8 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Remote;
+
 using OpenQA.Selenium.Interactions;
 using Parabank.Browser_SetUp;
 using System;
@@ -7,11 +10,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-[assembly:Parallelizable(ParallelScope.Fixtures)]
 namespace Parabank.ActionsAPI
 {
-    [TestFixture("chrome")]
-    [TestFixture("edge")]
+    [TestFixture]
+    [Parallelizable]
     public class MultiWinHandle
     {
         public static string testurl = "https://www.snapdeal.com/";
@@ -25,13 +27,15 @@ namespace Parabank.ActionsAPI
 
         }
 
-        //[SetUp]
+        [SetUp]
         public void openBrowser()
         {
-            browserLauncher.openBrowser(_browser, testurl);
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+
+
         }
 
-       // [Test]
+        // [Test]
         public static void loginTestRun2()
         {
 
